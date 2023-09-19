@@ -1,27 +1,23 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-
-int main() {
-	int basket = 0, time = 0;
-	char baskets[100] = { 0, };
-	scanf("%d %d", &basket, &time);
-	for (int i = 0; i < basket; i++)
+int main()
+{
+	int basket[100] = { NULL, };
+	int N = 0;
+	int M = 0;
+	int num = 0;
+	scanf("%d %d", &N, &M);
+	for (int i = 0; i < N; i++)
+		basket[i] = i + 1;
+	for (int i = 0; i < M; i++)
 	{
-		baskets[i] = i+1;
-	}
-	for (int i = 0; i < time; i++)
-	{
-		int a, b, c;
+		int a, b;
 		scanf("%d %d", &a, &b);
-		c = baskets[a-1];
-		baskets[a-1] = baskets[b-1];
-		baskets[b-1] = c;
+			num = basket[b -1];
+			basket[b - 1] = basket[a - 1];
+			basket[a - 1] = num;
 	}
-	int i = 0;
-	while (i < basket)
-	{
-		printf("%d ", baskets[i]);
-		i++;
-	}
+	for (int i = 0; i < N; i++)
+		printf("%d ", basket[i]);
 	return 0;
 }
